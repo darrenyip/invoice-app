@@ -68,10 +68,63 @@
     &__price {
       grid-column: 1 / span second;
       grid-row: row-two-end / row-end;
+      & p {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: -0.8px;
+      }
     }
     &__status {
       grid-column: 2 / span col-end;
       grid-row: row-one-end / row-end;
+      &--wpr {
+        border-radius: 0.6rem;
+        width: 10.4rem;
+        height: 4rem;
+      }
+      & .dot {
+        width: 8px;
+        height: 8px;
+        margin: auto 0.8rem auto 0;
+        border-radius: 50%;
+      }
+      & p {
+        margin: auto 0;
+      }
     }
+  }
+}
+.clr-paid {
+  & > .invoices--invoice__status--wpr {
+    background-color: var(--light-green-fade);
+  }
+  & .dot {
+    background: var(--light-green);
+  }
+  & p {
+    color: var(--light-green);
+  }
+}
+.clr-pending {
+  & > .invoices--invoice__status--wpr {
+    background-color: var(--light-orange-fade);
+  }
+  & .dot {
+    background: var(--light-orange);
+  }
+  & p {
+    color: var(--light-orange);
+  }
+}
+.clr-draft {
+  & > .invoices--invoice__status--wpr {
+    background-color: var(--invoice-card-draft-bg);
+  }
+  & .dot {
+    background: var(--color-text-3);
+  }
+  & p {
+    color: var(--color-text-3);
   }
 }

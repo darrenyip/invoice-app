@@ -2,9 +2,11 @@
   --deep-dark: #1e2139;
   --light-dark: #252945;
   --light-dark-100: #373b53;
+  --light-dark-100-fade: rgba(55, 59, 83, 0.06);
   --deep-purple: #7c5dfa;
   --light-purple: #9277ff;
   --light-purple-100: #dfe3fa;
+  --light-purple-100-fade: rgba(223, 227, 250, 0.06);
   --dark-bg: #141625;
   --light-bg: #f8f8f8;
   --gray-100: #dfe4fa;
@@ -12,19 +14,30 @@
   --gray-300: #7e88c3;
   --gray-400: #0c0e16;
   --light-gray: #494e6e;
+  --light-gray-100: #979797;
   --white: #ffffff;
+  --light-green: #33d69f;
+  --light-green-fade: rgba(51, 214, 159, 0.12);
+
+  --light-orange: #ff8f00;
+  --light-orange-fade: rgba(255, 143, 0, 0.06);
 }
 .dark {
   --bg-nav-color: var(--deep-dark);
   --color-text-1: var(--white);
   --color-text-2: var(--light-purple-100);
+  // color-text-3 used in invoice single card status
+  --color-text-3: var(--light-purple-100);
   --invoice-card-bg: var(--deep-dark);
+  --invoice-card-draft-bg: var(--light-purple-100-fade);
   --bg-color: var(--dark-bg);
 }
 .light {
   --bg-nav-color: var(--light-dark-100);
   --color-text-1: var(--gray-400);
   --color-text-2: var(--gray-300);
+  --invoice-card-draft-bg: var(--light-dark-100-fade);
+  --color-text-3: var(--light-dark-100);
   --invoice-card-bg: var(--white);
   --bg-color: var(--light-bg);
 }
@@ -34,6 +47,11 @@
 .d-flex-center {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+.d-flex-end {
+  display: flex;
+  justify-content: flex-end;
   align-items: center;
 }
 .justify-content-between {
