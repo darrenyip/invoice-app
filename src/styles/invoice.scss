@@ -1,0 +1,77 @@
+.invoices {
+  padding: 32px 24px;
+  background: var(--bg-color);
+  &--topbar {
+    display: flex;
+    margin-bottom: 3.2rem;
+    &__title {
+    }
+    &__filter {
+      flex-grow: 1;
+      position: relative;
+      p {
+        position: absolute;
+        width: max-content;
+        right: 20px;
+        top: 50%;
+        transform: translate(0, -50%);
+        // &::after {
+        //   content: "";
+        //   border-left: 20px solid transparent;
+        //   border-right: 20px solid transparent;
+        //   border-top: 20px solid #f00;
+        // }
+      }
+    }
+    &__add-new {
+    }
+  }
+  &--invoice {
+    padding: 2.4rem;
+    margin-bottom: 1.6rem;
+    background-color: var(--invoice-card-bg);
+    box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.100397);
+    border-radius: 8px;
+
+    // grid
+    display: grid;
+    grid-template-columns: [col-start] 1fr [second] 1fr [col-end];
+    grid-template-rows: [row-start] 29px [row-one-end] 23px [row-two-end] 24px [row-end];
+    & > * {
+      color: var(--color-text-1);
+    }
+    &__id {
+      grid-column: 1 / span second;
+      grid-row: row-start / row-one-end;
+      & span {
+        color: var(--gray-300);
+        font-size: 1.2rem;
+        font-weight: 700;
+      }
+      & p {
+        display: inline-block;
+      }
+    }
+    &__buyer {
+      grid-column: 2 / span col-end;
+      grid-row: row-start / row-one-end;
+      text-align: right;
+    }
+    &__due {
+      grid-column: 1 / span second;
+      grid-row: row-one-end / row-two-end;
+      & p {
+        color: var(--color-text-2);
+        font-weight: 500;
+      }
+    }
+    &__price {
+      grid-column: 1 / span second;
+      grid-row: row-two-end / row-end;
+    }
+    &__status {
+      grid-column: 2 / span col-end;
+      grid-row: row-one-end / row-end;
+    }
+  }
+}

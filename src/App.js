@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from "./components/navbar";
+import useStore from "./services/store";
+import clsx from "clsx";
+import Invoices from "./components/invoices";
+
+import "./App.scss";
 
 function App() {
+  const theme = useStore((state) => state.theme);
+
+  const AppClasses = clsx({
+    App: true,
+    dark: theme === "dark",
+    light: theme !== "dark",
+  });
+  console.log(AppClasses);
   return (
-    <div className="App">
+    <div className={AppClasses}>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Navbar />
       </header>
+      <main>
+        <Invoices />
+      </main>
     </div>
   );
 }

@@ -1,0 +1,71 @@
+:root {
+  --deep-dark: #1e2139;
+  --light-dark: #252945;
+  --light-dark-100: #373b53;
+  --deep-purple: #7c5dfa;
+  --light-purple: #9277ff;
+  --light-purple-100: #dfe3fa;
+  --dark-bg: #141625;
+  --light-bg: #f8f8f8;
+  --gray-100: #dfe4fa;
+  --gray-200: #888eb0;
+  --gray-300: #7e88c3;
+  --gray-400: #0c0e16;
+  --light-gray: #494e6e;
+  --white: #ffffff;
+}
+.dark {
+  --bg-nav-color: var(--deep-dark);
+  --color-text-1: var(--white);
+  --color-text-2: var(--light-purple-100);
+  --invoice-card-bg: var(--deep-dark);
+  --bg-color: var(--dark-bg);
+}
+.light {
+  --bg-nav-color: var(--light-dark-100);
+  --color-text-1: var(--gray-400);
+  --color-text-2: var(--gray-300);
+  --invoice-card-bg: var(--white);
+  --bg-color: var(--light-bg);
+}
+.d-flex {
+  display: flex;
+}
+.d-flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.justify-content-between {
+  justify-content: space-between;
+}
+@media screen and (min-width: 1080px) {
+  .flex-direction-xxl-col {
+    flex-direction: column;
+  }
+}
+.arrow {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: inline-block;
+  position: relative;
+  margin: 0 1rem;
+  & span {
+    top: 0.5rem;
+    position: absolute;
+    width: 0.75rem;
+    height: 0.1rem;
+    background-color: #efefef;
+    display: inline-block;
+    transition: all 0.2s ease;
+    &:first-of-type {
+      left: 0;
+      transform: rotate(45deg);
+    }
+
+    &:last-of-type {
+      right: 0;
+      transform: rotate(-45deg);
+    }
+  }
+}
