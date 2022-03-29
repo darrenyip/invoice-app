@@ -5,14 +5,15 @@ const Invoice = (props) => {
   const { _id, buyer, price, due, status } = props.data;
   const statusColorClass = clsx({
     "invoices--invoice__status": true,
+    "d-flex-start-md": true,
     "d-flex-end": true,
-    "clr-draft": status == 0,
-    "clr-pending": status == 1,
-    "clr-paid": status == 2,
+    "clr-draft": status == "Draft",
+    "clr-pending": status == "Pending",
+    "clr-paid": status == "Paid",
   });
-  console.log(statusColorClass);
+  // console.log(statusColorClass);
   return (
-    <div className="invoices--invoice">
+    <div className="invoices--invoice cursor-pointer">
       <div className="invoices--invoice__id ">
         <span>#</span>
         <p className="f-bold">{_id}</p>
@@ -29,8 +30,11 @@ const Invoice = (props) => {
       <div className={statusColorClass}>
         <div className="invoices--invoice__status--wpr d-flex-center">
           <div className="dot"></div>
-          <p>{status == 0 ? "Draft" : status == 1 ? "Pending" : "Paid"}</p>
+          <p>{status}</p>
         </div>
+      </div>
+      <div className="invoices--invoice__arrow d-flex-center  d-flex-md">
+        <i className="arrow-1 arrow-1-right"></i>
       </div>
     </div>
   );

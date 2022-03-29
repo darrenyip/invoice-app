@@ -13,6 +13,7 @@
   font-weight: 700;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  cursor: pointer;
   &-plus-icon {
     background-color: var(--white);
     border-radius: 50%;
@@ -34,4 +35,13 @@
 .btn-primary {
   color: var(--white);
   background-color: var(--deep-purple);
+}
+@media screen and (min-width: 768px) {
+  .btn {
+    min-width: 150px;
+    padding: 0.8rem 0rem 0.8rem 1rem;
+    & p {
+      display: flex;
+    }
+  }
 }

@@ -28,18 +28,22 @@
   --color-text-2: var(--light-purple-100);
   // color-text-3 used in invoice single card status
   --color-text-3: var(--light-purple-100);
+  --invoice-dropdown-bg: var(--light-dark);
   --invoice-card-bg: var(--deep-dark);
   --invoice-card-draft-bg: var(--light-purple-100-fade);
   --bg-color: var(--dark-bg);
+  --checkbox-bg: var(--deep-dark);
 }
 .light {
   --bg-nav-color: var(--light-dark-100);
   --color-text-1: var(--gray-400);
   --color-text-2: var(--gray-300);
   --invoice-card-draft-bg: var(--light-dark-100-fade);
+  --invoice-dropdown-bg: var(--white);
   --color-text-3: var(--light-dark-100);
   --invoice-card-bg: var(--white);
   --bg-color: var(--light-bg);
+  --checkbox-bg: var(--light-purple-100);
 }
 .d-flex {
   display: flex;
@@ -62,7 +66,7 @@
     flex-direction: column;
   }
 }
-.arrow {
+.arrow-down {
   width: 1.25rem;
   height: 1.25rem;
   display: inline-block;
@@ -73,7 +77,7 @@
     position: absolute;
     width: 0.75rem;
     height: 0.1rem;
-    background-color: #efefef;
+    background-color: var(--deep-purple);
     display: inline-block;
     transition: all 0.2s ease;
     &:first-of-type {
@@ -86,4 +90,86 @@
       transform: rotate(-45deg);
     }
   }
+}
+.arrow {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: inline-block;
+  position: relative;
+  margin: 0 1rem;
+  & span {
+    top: 0.5rem;
+    position: absolute;
+    width: 0.75rem;
+    height: 0.1rem;
+    background-color: var(--deep-purple);
+    display: inline-block;
+    transition: all 0.2s ease;
+  }
+}
+.arrow-down span {
+  &:first-of-type {
+    left: 0;
+    transform: rotate(45deg);
+  }
+
+  &:last-of-type {
+    right: 0;
+    transform: rotate(-45deg);
+  }
+}
+.arrow-right span {
+  &:first-of-type {
+    left: 0;
+    transform: rotate(45deg);
+  }
+
+  &:last-of-type {
+    right: 0;
+    transform: rotate(-45deg);
+  }
+}
+.arrow-1 {
+  border: solid var(--deep-purple);
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+.d-flex-lg {
+  @media screen and (min-width: 1080px) {
+    display: flex;
+  }
+}
+
+.arrow-1-right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+.t-center {
+  text-align: center;
+}
+.d-block {
+  display: block !important;
+}
+.d-block-md {
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
+}
+.d-flex-md {
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
+}
+@media screen and (min-width: 768px) {
+  .d-flex-start-md {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+.cursor-pointer {
+  cursor: pointer;
 }

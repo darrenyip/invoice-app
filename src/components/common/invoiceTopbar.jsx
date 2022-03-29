@@ -1,21 +1,42 @@
-import React from "react";
-import useStore from "../../services/store";
-
-const InvoiceTopBar = ({ invoiceCount }) => {
+import React, { useState } from "react";
+import CheckBox from "./checkBox";
+const InvoiceTopBar = ({ invoiceCount, onOptionChecked }) => {
+  const options = ["Draft", "Pending", "Paid"];
+  const [toggleDropDown, settoggleDropDown] = useState(false);
+  const [displayClass, setDisplayClass] = useState("");
+  const handleToggleDropdown = () => {
+    if (!toggleDropDown) {
+      settoggleDropDown(true);
+      setDisplayClass("d-block");
+    } else {
+      settoggleDropDown(false);
+      setDisplayClass("");
+    }
+    console.log(displayClass);
+  };
   return (
     <div className="invoices--topbar">
       <div className="invoices--topbar__title">
         <h2>Invoices</h2>
-        <p>{invoiceCount} invoices</p>
+        <p>{invoiceCount === 0 ? "No" : invoiceCount} invoices</p>
       </div>
-      <div className="invoices--topbar__filter">
-        <p className="f-bold d-flex-center">
+      <div className="invoices--topbar__filter cursor-pointer">
+        <p
+          className="invoices--topbar__filter--text f-bold d-flex-center"
+          onClick={handleToggleDropdown}
+        >
           Filter{" "}
-          <span className="arrow">
+          <span className="d-block-md" onClick={handleToggleDropdown}>
+            &nbsp;by status
+          </span>{" "}
+          <span className="arrow arrow-down">
             <span></span>
             <span></span>
           </span>
         </p>
+        <div className={"invoices--topbar__filter--dropdown " + displayClass}>
+          <CheckBox options={options} onOptionChecked={onOptionChecked} />
+        </div>
       </div>
       <div className="invoices--topbar__add-new">
         <button className="btn btn-primary">
@@ -33,7 +54,9 @@ const InvoiceTopBar = ({ invoiceCount }) => {
               />
             </svg>
           </div>
-          <p>New</p>
+          <p>
+            New<span className="d-block-md">&nbsp;Invoice</span>
+          </p>
         </button>
       </div>
     </div>

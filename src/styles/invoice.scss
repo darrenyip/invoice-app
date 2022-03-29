@@ -1,6 +1,8 @@
 .invoices {
+  position: relative;
   padding: 32px 24px;
   background: var(--bg-color);
+  min-height: calc(100vh - 72px);
   &--topbar {
     display: flex;
     margin-bottom: 3.2rem;
@@ -9,7 +11,7 @@
     &__filter {
       flex-grow: 1;
       position: relative;
-      p {
+      &--text {
         position: absolute;
         width: max-content;
         right: 20px;
@@ -21,6 +23,17 @@
         //   border-right: 20px solid transparent;
         //   border-top: 20px solid #f00;
         // }
+      }
+      &--dropdown {
+        display: none;
+        background: var(--invoice-dropdown-bg);
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+        border-radius: 8px;
+        position: absolute;
+        top: 100%;
+        right: -25%;
+        padding: 25px;
+        width: 192px;
       }
     }
     &__add-new {
@@ -94,6 +107,27 @@
       }
     }
   }
+  &--empty {
+    width: 80vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    & svg {
+      margin-bottom: 4rem;
+    }
+    & h2 {
+      margin-bottom: 2.4rem;
+    }
+    & p {
+      min-width: 52vw;
+      max-width: 199px;
+      margin: 0 auto;
+      & span {
+        font-weight: 700;
+      }
+    }
+  }
 }
 .clr-paid {
   & > .invoices--invoice__status--wpr {
@@ -126,5 +160,57 @@
   }
   & p {
     color: var(--color-text-3);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .invoices--topbar {
+    max-width: 730px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .invoices--invoice {
+    max-width: 730px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.6rem 2.4rem;
+    // 87/624 =0.1394 0.2291 0.2179 0.208 0.1987 0.006
+    grid-template-columns: 14% 23% 22% 20% 19% 2%;
+    grid-template-rows: auto;
+    grid-template-areas: "id due buyer price status detail";
+    // grid-template-rows: [row-start] 29px [row-one-end] 23px [row-two-end] 24px [row-end];
+
+    &__id {
+      grid-area: id;
+      margin: auto 0;
+    }
+    &__due {
+      grid-area: due;
+      margin: auto 0;
+    }
+    &__buyer {
+      grid-area: buyer;
+      text-align: left;
+      margin: auto 0;
+    }
+    &__price {
+      grid-area: price;
+      margin: auto 0;
+    }
+    &__status {
+      grid-area: status;
+      margin: auto 0;
+    }
+    &__arrow {
+      grid-area: detail;
+    }
+  }
+}
+@media screen and (min-width: 1080px) {
+  main {
+    width: calc(100vw - 103px);
+  }
+  .invoices {
+    min-height: 100vh;
   }
 }
