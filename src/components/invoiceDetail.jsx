@@ -1,15 +1,22 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import useStore from "../services/store";
 const InvoiceDetail = (props) => {
+  let navigate = useNavigate();
   const statusColorClass = {};
   const { id } = useParams();
   const invoices = useStore((state) => state.invoices);
   const invoice = invoices.find((item) => item._id === id);
+
   return (
     <React.Fragment>
       <div className="invoice-detail">
-        <div className="back-bar">
+        <div
+          className="back-bar cursor-pointer "
+          onClick={() => {
+            navigate(-1);
+          }}
+        >
           <i className="gg-chevron-left"></i>
           <p className="f-bold">Go back</p>
         </div>
