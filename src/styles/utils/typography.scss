@@ -26,3 +26,9 @@ p {
 .f-bold {
   font-weight: 700;
 }
+@media (min-width: 1080px) {
+  h2 {
+    font-size: 3.2rem;
+    margin-bottom: 0.8rem;
+  }
+}

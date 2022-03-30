@@ -1,0 +1,32 @@
+.invoice-detail {
+  position: relative;
+  background: var(--bg-color);
+  padding: 3.2rem 2.4rem;
+  min-height: 100vh;
+  & p {
+    color: var(--color-text-4);
+  }
+  & .back-bar {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    margin-bottom: 3.2rem;
+    & p {
+      color: var(--color-text-1);
+    }
+  }
+  &--status-bar {
+    margin-bottom: 1.6rem;
+  }
+}
+.invoice-detail-functions {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  background-color: var(--white);
+}
+.card {
+  background: var(--bg-card);
+  box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.100397);
+  border-radius: 8px;
+}

@@ -207,10 +207,10 @@
   }
 }
 @media screen and (min-width: 1080px) {
-  main {
-    width: calc(100vw - 103px);
-  }
   .invoices {
     min-height: 100vh;
+  }
+  .invoices--topbar__filter--dropdown {
+    right: 0;
   }
 }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import CheckBox from "./checkBox";
-const InvoiceTopBar = ({ invoiceCount, onOptionChecked }) => {
+const InvoiceTopBar = ({ invoiceCount, onOptionChecked, checkboxOptions }) => {
   const options = ["Draft", "Pending", "Paid"];
   const [toggleDropDown, settoggleDropDown] = useState(false);
   const [displayClass, setDisplayClass] = useState("");
@@ -18,7 +18,13 @@ const InvoiceTopBar = ({ invoiceCount, onOptionChecked }) => {
     <div className="invoices--topbar">
       <div className="invoices--topbar__title">
         <h2>Invoices</h2>
-        <p>{invoiceCount === 0 ? "No" : invoiceCount} invoices</p>
+        <p>
+          There are {invoiceCount === 0 ? "No" : invoiceCount}
+          {checkboxOptions.map((option, index) => (
+            <span key={index + option}>&nbsp;{option}</span>
+          ))}
+          &nbsp;{checkboxOptions.length == 0 ? "total " : ""}invoices
+        </p>
       </div>
       <div className="invoices--topbar__filter cursor-pointer">
         <p

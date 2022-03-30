@@ -1,8 +1,8 @@
 import create from "zustand";
 import _ from "lodash";
-const useStore = create((set) => ({
+const useStore = create((set, get) => ({
   invoices: [],
-  theme: "dark",
+  theme: "light",
   options: [],
   filteredInvoice: [],
   flipTheme: (theme) => set((state) => ({ ...state, theme })),

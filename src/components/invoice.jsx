@@ -27,12 +27,6 @@ const Invoice = (props) => {
       <div className="invoices--invoice__price">
         <p className="f-bold">$ {price}</p>
       </div>
-      <div className={statusColorClass}>
-        <div className="invoices--invoice__status--wpr d-flex-center">
-          <div className="dot"></div>
-          <p>{status}</p>
-        </div>
-      </div>
       <div className="invoices--invoice__arrow d-flex-center  d-flex-md">
         <i className="arrow-1 arrow-1-right"></i>
       </div>

@@ -2,17 +2,14 @@ import React, { Component, useEffect } from "react";
 import InvoiceTopBar from "./common/invoiceTopbar";
 import Invoice from "./invoice";
 import useStore from "../services/store";
-import fakeData from "../services/fakeData";
 import NoInvoice from "./common/noInvoice";
 
 const Invoices = () => {
   const invoices = useStore((state) => state.invoices);
   const filteredInvoice = useStore((state) => state.filteredInvoice);
-  const setInvoices = useStore((state) => state.setInvoices);
   const doFilter = useStore((state) => state.doFilter);
   const options = useStore((state) => state.options);
-  const newInvoices = useStore((state) => state.newInvoices);
-  setInvoices(fakeData);
+
   const handleFilteredInvoice = () => {
     console.log("handle filter", options);
     doFilter();
@@ -20,7 +17,10 @@ const Invoices = () => {
   return (
     <div className="invoices">
       <InvoiceTopBar
-        invoiceCount={invoices.length}
+        invoiceCount={
+          options.length == 0 ? invoices.length : filteredInvoice.length
+        }
+        checkboxOptions={options}
         onOptionChecked={handleFilteredInvoice}
       />
 

@@ -1,10 +1,15 @@
-@use "./styles/reset.scss";
+@use "./styles/utils/reset.scss";
+@use "./styles/utils/typography.scss";
+
 @use "./styles/general.scss";
-@use "./styles/navbar.scss";
-@use "./styles/invoice.scss";
-@use "./styles/typography.scss";
-@use "./styles/button.scss";
-@use "./styles/checkbox.scss";
+
+@use "./styles/pages/invoice.scss";
+@use "./styles/pages/invoiceDetail.scss";
+
+@use "./styles/components/navbar.scss";
+@use "./styles/components/checkbox.scss";
+@use "./styles/components/button.scss";
+@use "./styles/components/arrow.scss";
 @import url("https://fonts.googleapis.com/css2?family=Spartan:wght@400;500;700&display=swap");
 .App {
 }
