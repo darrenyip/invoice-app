@@ -129,8 +129,12 @@
     }
   }
 }
+
 .clr-paid {
   & > .invoices--invoice__status--wpr {
+    background-color: var(--light-green-fade);
+  }
+  & > .invoice-detail--status-bar__status--wpr {
     background-color: var(--light-green-fade);
   }
   & .dot {
@@ -144,6 +148,9 @@
   & > .invoices--invoice__status--wpr {
     background-color: var(--light-orange-fade);
   }
+  & > .invoice-detail--status-bar__status--wpr {
+    background-color: var(--light-orange-fade);
+  }
   & .dot {
     background: var(--light-orange);
   }
@@ -153,6 +160,9 @@
 }
 .clr-draft {
   & > .invoices--invoice__status--wpr {
+    background-color: var(--invoice-card-draft-bg);
+  }
+  & > .invoice-detail--status-bar__status--wpr {
     background-color: var(--invoice-card-draft-bg);
   }
   & .dot {

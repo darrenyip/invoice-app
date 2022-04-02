@@ -6,6 +6,7 @@
   --deep-purple: #7c5dfa;
   --light-purple: #9277ff;
   --light-purple-100: #dfe3fa;
+  --light-purple-200: #f9fafe;
   --light-purple-100-fade: rgba(223, 227, 250, 0.06);
   --dark-bg: #141625;
   --light-bg: #f8f8f8;
@@ -33,6 +34,8 @@
   --invoice-card-bg: var(--deep-dark);
   --invoice-card-draft-bg: var(--light-purple-100-fade);
   --bg-card: var(--deep-dark);
+  --bg-card-2: var(--light-dark);
+  --bg-card-3: var(--gray-400);
   --bg-color: var(--dark-bg);
   --checkbox-bg: var(--deep-dark);
 }
@@ -47,6 +50,8 @@
   --invoice-card-bg: var(--white);
   --bg-color: var(--light-bg);
   --bg-card: var(--white);
+  --bg-card-2: var(--light-purple-200);
+  --bg-card-3: var(--light-dark-100);
   --checkbox-bg: var(--light-purple-100);
 }
 .d-flex {
@@ -136,4 +141,15 @@
   height: 8px;
   margin: auto 0.8rem auto 0;
   border-radius: 50%;
+}
+
+.clr-black {
+  color: var(--gray-400) !important;
+}
+
+.only-mobile {
+  display: block;
+  @media (min-width: 768px) {
+    display: none;
+  }
 }
