@@ -1,18 +1,22 @@
 .invoice-detail {
-  position: relative;
-  background: var(--bg-color);
-  padding: 3.2rem 2.4rem;
-  min-height: 100vh;
-  & p {
-    color: var(--color-text-4);
-  }
-  & .back-bar {
-    display: flex;
-    gap: 0.8rem;
-    align-items: center;
-    margin-bottom: 3.2rem;
+    position: relative;
+    background: var(--bg-color);
+    padding: 3.2rem 2.4rem;
+    min-height: 100vh;
     & p {
-      color: var(--color-text-1);
+        color: var(--color-text-4);
+    }
+    & .back-bar {
+        display: flex;
+        gap: 0.8rem;
+        align-items: center;
+        margin-bottom: 3.2rem;
+        & p {
+            color: var(--color-text-1);
+        }
+    }
+    &--status-bar {
+        margin-bottom: 1.6rem;
     }
   }
   &--status-bar {
@@ -40,7 +44,6 @@
       grid-template-columns: repeat(1fr, 2);
       grid-template-rows: auto;
       margin-bottom: 3.6rem;
-
       & .title-sm {
         margin-bottom: 1.2rem;
       }
@@ -114,6 +117,7 @@
   width: 100vw;
   background-color: var(--white);
 }
+
 .card {
   background: var(--bg-card);
   border-radius: 8px;
