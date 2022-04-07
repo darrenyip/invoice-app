@@ -1,47 +1,78 @@
 .btn {
-  display: flex;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  border: none;
-  padding: 0.4rem 1.4rem 0.4rem 0.6rem;
-  border-radius: 24px;
-  font-weight: 700;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  cursor: pointer;
-  &-plus-icon {
-    background-color: var(--white);
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
-  }
-  & p {
+    display: flex;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: none;
+    padding: 0.4rem 1.4rem 0.4rem 0.6rem;
+    border-radius: 24px;
+    font-weight: 700;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    cursor: pointer;
+    &-plus-icon {
+        background-color: var(--white);
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+    }
+    & p {
+        letter-spacing: -0.25px;
+        font-weight: 700;
+        font-size: 1.2rem;
+        line-height: 1.5rem;
+        color: white !important;
+    }
+}
+
+.btn p {
+    margin: auto;
+    margin-left: 10px;
+}
+
+.btn-font-12 {
     letter-spacing: -0.25px;
     font-weight: 700;
     font-size: 1.2rem;
     line-height: 1.5rem;
-    color: white !important;
-  }
 }
-.btn p {
-  margin: auto;
-  margin-left: 10px;
-}
+
 .btn-primary {
-  color: var(--white);
-  background-color: var(--deep-purple);
+    color: var(--white);
+    background-color: var(--deep-purple);
 }
+
+.btn-primary-lg {
+    padding: 1.6rem 2.7rem;
+    min-width: 14.9rem;
+    color: var(--white);
+    background-color: var(--deep-purple);
+}
+
+.btn-gray-sm {
+    padding: 1.6rem 2.3rem;
+    min-width: 7.3rem;
+    background: var(--bg-card-2);
+    color: var(--color-text-2);
+    // max-width: 7.3rem;
+}
+
+.btn-danger-md {
+    padding: 1.6rem 2.3rem;
+    min-width: 8.9rem;
+    background: var(--red);
+    color: var(--white);
+}
+
 @media screen and (min-width: 768px) {
-  .btn {
-    min-width: 150px;
-    padding: 0.8rem 0rem 0.8rem 1rem;
-    & p {
-      display: flex;
+    .btn {
+        // min-width: 150px;
+        // padding: 0.8rem 0rem 0.8rem 1rem;
+        & p {
+            display: flex;
+        }
     }
-  }
 }

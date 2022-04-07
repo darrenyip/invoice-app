@@ -8,9 +8,9 @@ const InvoiceDetail = (props) => {
   const invoices = useStore((state) => state.invoices);
   const invoice = invoices.find((item) => item._id === id);
   const statusColorClass = clsx({
-    "clr-draft": invoice.status == "Draft",
-    "clr-pending": invoice.status == "Pending",
-    "clr-paid": invoice.status == "Paid",
+    "clr-draft": invoice.status === "Draft",
+    "clr-pending": invoice.status === "Pending",
+    "clr-paid": invoice.status === "Paid",
   });
 
   return (
@@ -26,18 +26,25 @@ const InvoiceDetail = (props) => {
           <p className="f-bold">Go back</p>
         </div>
         <div className="invoice-detail--status-bar card">
-          <p className="clr-purple">Status</p>
-          <div className={statusColorClass}>
-            <div className="invoice-detail--status-bar__status--wpr d-flex-center">
-              <div className="dot"></div>
-              <p>{invoice.status}</p>
+          <div className="status-wpr">
+            <p className="clr-purple">Status</p>
+            <div className={statusColorClass}>
+              <div className="invoice-detail--status-bar__status--wpr d-flex-center">
+                <div className="dot"></div>
+                <p>{invoice.status}</p>
+              </div>
             </div>
+          </div>
+          <div className="buttons-wpr d-flex-md">
+            <button className="btn btn-gray-sm">Edit</button>
+            <button className="btn btn-danger-md">Delete</button>
+            <button className="btn btn-primary-lg">Mark as Paid</button>
           </div>
         </div>
         <div className="invoice-detail--sheet card">
           <div className="invoice-detail--sheet__order">
             <p className="f-bold invoice-id">
-              # <p className="clr-black ">{invoice._id}</p>
+              # <span>{invoice._id}</span>
             </p>
             <p className="clr-purple">Graphic design</p>
           </div>
@@ -82,8 +89,8 @@ const InvoiceDetail = (props) => {
               </div>
               <div className="products-top--item">
                 <div className="products-top--item__detail">
-                  <p className="f-bold">Banner Design 2</p>
-                  <p className="clr-purple">1 x $99.9</p>
+                  <p className="f-bold detail-name">Banner Design</p>
+                  <p className="clr-purple detail-price">1 x $99.9</p>
                 </div>
                 <div className="products-top--item__amount">
                   <p className="f-bold">$ 99.99</p>
@@ -92,15 +99,17 @@ const InvoiceDetail = (props) => {
             </div>
             <div className="products-bottom">
               <p>Grand Total</p>
-              <h1>$ {invoice.price}</h1>
+              <h2>$ {invoice.price}</h2>
             </div>
           </div>
         </div>
       </div>
-      <div className="invoice-detail-functions">
-        <button className="btn btn-gray">Edit</button>
-        <button className="btn btn-danger">Delete</button>
-        <button className="btn btn-primary">Mark as Paid</button>
+      <div className="invoice-detail-functions only-mobile">
+        <div className="buttons-wpr">
+          <button className="btn btn-gray-sm">Edit</button>
+          <button className="btn btn-danger-md">Delete</button>
+          <button className="btn btn-primary-lg">Mark as Paid</button>
+        </div>
       </div>
     </React.Fragment>
   );

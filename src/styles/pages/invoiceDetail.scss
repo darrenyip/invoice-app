@@ -17,12 +17,24 @@
     }
     &--status-bar {
         margin-bottom: 1.6rem;
-    }
-    &--status-bar {
-        margin-bottom: 1.6rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        & .status-wpr {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            @media screen and (min-width: 768px) {
+                max-width: 15.9rem;
+            }
+        }
+        & .buttons-wpr {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+        }
     }
     &--sheet {
         &__order {
@@ -32,6 +44,9 @@
                 &>p {
                     display: inline-block;
                     font-weight: bold;
+                }
+                & span {
+                    color: var(--color-text-1);
                 }
             }
         }
@@ -68,15 +83,22 @@
                     margin-bottom: 0.3rem;
                 }
             }
+            & h3 {
+                color: var(--color-text-1)
+            }
         }
         &__sent-to {
             margin-bottom: 4rem;
             & p {
                 margin-bottom: 1.2rem;
             }
+            & h3 {
+                color: var(--color-text-1)
+            }
         }
         &__products-wpr {
             background: var(--bg-card-2);
+            border-radius: 0 0 8px 8px;
         }
     }
 }
@@ -103,19 +125,43 @@
         & .detail-total {
             color: var(--color-text-1);
         }
+        &__amount {
+            align-self: center;
+            & p {
+                color: var(--color-text-1);
+            }
+        }
     }
 }
 
 .products-bottom {
     background: var(--bg-card-3);
     border-radius: 0 0 8px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    & p,
+    h2 {
+        color: var(--white);
+    }
 }
 
 .invoice-detail-functions {
-    // position: fixed;
+    & .buttons-wpr {
+        max-width: 414px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.8rem;
+        & button {
+            flex: 0 0;
+        }
+    }
+    padding: 2.1rem 2.4rem;
     bottom: 0;
     width: 100vw;
-    background-color: var(--white);
+    background: var(--bg-card);
 }
 
 .card {
