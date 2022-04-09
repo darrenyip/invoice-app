@@ -2,10 +2,12 @@ import clsx from "clsx";
 import React from "react";
 // import { useParams, useNavigate } from "react-router-dom";
 import useStore from "../services/store";
-const InvoiceEdit = () => {
+import EditForm from "./EditForm";
+const InvoiceEdit = (props) => {
+  const { invoice } = props;
   const modalSwitch = useStore((state) => state.modalToggle);
-  const setModalToggleON = useStore((state) => state.setModalToggleON);
-  const setModalToggleOFF = useStore((state) => state.setModalToggleOFF);
+  const setModalToggleON = useStore((state) => state.setModalEditToggleON);
+  const setModalToggleOFF = useStore((state) => state.setModalEditToggleOFF);
   // let navigate = useNavigate();
   const toggleClass = () => {
     console.log(modalSwitch);
@@ -33,6 +35,13 @@ const InvoiceEdit = () => {
           <i className="gg-chevron-left"></i>
           <p className="f-bold">Go back</p>
         </div>
+      </div>
+      <div className="edit-main">
+        <div className="edit-main--title">
+          Edit <span>#</span>
+          {invoice._id}
+        </div>
+        <EditForm invoice={invoice} />
       </div>
     </div>
   );

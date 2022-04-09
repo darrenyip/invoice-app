@@ -1,10 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import Invoices from "./components/invoices";
-import NewInvoice from "./components/newInvoice";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 
 ReactDOM.render(

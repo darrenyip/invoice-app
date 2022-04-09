@@ -22,7 +22,7 @@ const InvoiceDetail = (props) => {
 
   return (
     <React.Fragment>
-      <InvoiceEdit />
+      <InvoiceEdit invoice={invoice} />
       <div className="invoice-detail">
         <div
           className="back-bar cursor-pointer "

@@ -15,8 +15,37 @@
     & .back-bar {
         display: flex;
         align-items: center;
+        margin-bottom: 2.4rem;
         & p {
             padding-top: 4px;
+        }
+    }
+}
+
+.edit-main {
+    display: flex;
+    flex-flow: column wrap;
+    // width: 100%;
+    &--title {
+        width: 100%;
+        flex: 1 0 100%;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 32px;
+        letter-spacing: -0.5px;
+        color: var(--color-text-1);
+        margin-bottom: 2.4rem;
+        & span {
+            color: var(--gray-200);
+        }
+    }
+    &--bill-from {
+        width: 100%;
+        flex: 1 0 100%;
+        margin-bottom: 2.4rem;
+        & p {
+            color: var(--deep-purple);
+            font-weight: bold;
         }
     }
 }
