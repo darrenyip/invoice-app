@@ -39,6 +39,7 @@
     --bg-card-3: var(--gray-400);
     --bg-color: var(--dark-bg);
     --checkbox-bg: var(--deep-dark);
+    --black-white: var(--dark-bg);
 }
 
 .light {
@@ -55,6 +56,11 @@
     --bg-card-2: var(--light-purple-200);
     --bg-card-3: var(--light-dark-100);
     --checkbox-bg: var(--light-purple-100);
+    --black-white: var(--white);
+}
+
+.d-none {
+    display: none !important;
 }
 
 .d-flex {
@@ -130,9 +136,9 @@
 }
 
 .d-flex-md {
-    display: none;
+    display: none !important;
     @media screen and (min-width: 768px) {
-        display: flex;
+        display: flex !important;
     }
 }
 

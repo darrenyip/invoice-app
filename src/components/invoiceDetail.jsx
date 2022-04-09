@@ -1,9 +1,12 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import useStore from "../services/store";
 import clsx from "clsx";
+import useStore from "../services/store";
+import InvoiceEdit from "./invoiceEdit";
 const InvoiceDetail = (props) => {
   let navigate = useNavigate();
+  const modalSwitch = useStore((state) => state.modalToggle);
+  const setModalToggleON = useStore((state) => state.setModalToggleON);
   const { id } = useParams();
   const invoices = useStore((state) => state.invoices);
   const invoice = invoices.find((item) => item._id === id);
@@ -12,9 +15,14 @@ const InvoiceDetail = (props) => {
     "clr-pending": invoice.status === "Pending",
     "clr-paid": invoice.status === "Paid",
   });
+  const handleToggleEdit = () => {
+    setModalToggleON();
+    window.scrollTo(0, 0);
+  };
 
   return (
     <React.Fragment>
+      <InvoiceEdit />
       <div className="invoice-detail">
         <div
           className="back-bar cursor-pointer "
@@ -102,11 +110,39 @@ const InvoiceDetail = (props) => {
               <h2>$ {invoice.price}</h2>
             </div>
           </div>
+          <div className="invoice-detail--sheet__products-wpr-desktop d-flex-md">
+            <div className="products-top">
+              <div className="products-detail-grid-wpr">
+                <div className="item-name product-detail-title ">Item Name</div>
+                <div className="qty product-detail-title ">QTY.</div>
+                <div className="product-price product-detail-title ">Price</div>
+                <div className="product-total product-detail-title ">Total</div>
+              </div>
+              <div className="products-detail-grid-wpr">
+                <div className="item-name product-detail-value">
+                  Banner Design
+                </div>
+                <div className="qty product-detail-value">1</div>
+                <div className="product-price product-detail-value">
+                  $ 199.99
+                </div>
+                <div className="product-total product-detail-value">
+                  $ 199.99
+                </div>
+              </div>
+            </div>
+            <div className="products-bottom ">
+              <div className="amount-text">Amount</div>
+              <div className="amount-total">$ 556.00</div>
+            </div>
+          </div>
         </div>
       </div>
       <div className="invoice-detail-functions only-mobile">
         <div className="buttons-wpr">
-          <button className="btn btn-gray-sm">Edit</button>
+          <button className="btn btn-gray-sm" onClick={handleToggleEdit}>
+            Edit
+          </button>
           <button className="btn btn-danger-md">Delete</button>
           <button className="btn btn-primary-lg">Mark as Paid</button>
         </div>

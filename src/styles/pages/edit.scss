@@ -1,0 +1,22 @@
+.edit-container {
+    position: absolute;
+    // display: flex;
+    min-height: 200vh; //only for test
+    z-index: 1;
+    width: 100%;
+    background: var(--black-white);
+    max-width: 616px;
+    padding: 3.2rem 2.4rem;
+    // overflow-y: auto;
+    & .edit-scrollbar {
+        width: 8px;
+        margin-right: 0;
+    }
+    & .back-bar {
+        display: flex;
+        align-items: center;
+        & p {
+            padding-top: 4px;
+        }
+    }
+}
