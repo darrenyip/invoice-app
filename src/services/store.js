@@ -1,7 +1,7 @@
 import create from "zustand";
 import _ from "lodash";
 const useStore = create((set, get) => ({
-    modalEditToggle: 0,
+    modalEditToggle: 1,
     invoices: [],
     theme: "light",
     options: [],
@@ -11,8 +11,8 @@ const useStore = create((set, get) => ({
     addOption: (option) =>
         set((state) => ({...state, options: [...state.options, ...option] })),
     setOptions: (options) => set((state) => ({ options })),
-    setModalEditToggleON: () => set((state) => ({ modalEditToggle: 1 })),
-    setModalEditToggleOFF: () => set((state) => ({ modalEditToggle: 0 })),
+    setModalEditToggleON: () => set({ modalEditToggle: 1 }),
+    setModalEditToggleOFF: () => set({ modalEditToggle: 0 }),
     removeOption: (option) =>
         set((state) => ({
             options: state.options.filter((item) => item !== option),

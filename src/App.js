@@ -6,12 +6,16 @@ import NewInvoice from "./components/newInvoice";
 import { Routes, Route } from "react-router-dom";
 import InvoiceDetail from "./components/invoiceDetail";
 import fakeData from "./services/fakeData";
+import { fakerData } from "./services/fakeData";
+import faker from "@faker-js/faker";
 import "./App.scss";
 
 function App() {
   const theme = useStore((state) => state.theme);
   const setInvoices = useStore((state) => state.setInvoices);
-  setInvoices(fakeData);
+  const saveData = fakerData();
+  console.log(saveData);
+  setInvoices(saveData);
   const AppClasses = clsx({
     App: true,
     "d-flex-lg": true,

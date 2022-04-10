@@ -5,26 +5,28 @@ import useStore from "../services/store";
 import EditForm from "./EditForm";
 const InvoiceEdit = (props) => {
   const { invoice } = props;
-  const modalSwitch = useStore((state) => state.modalToggle);
-  const setModalToggleON = useStore((state) => state.setModalEditToggleON);
-  const setModalToggleOFF = useStore((state) => state.setModalEditToggleOFF);
+  const modalSwitch = useStore((state) => state.modalEditToggle);
+  const setModalEditToggleON = useStore((state) => state.setModalEditToggleON);
+  const setModalEditToggleOFF = useStore(
+    (state) => state.setModalEditToggleOFF
+  );
   // let navigate = useNavigate();
   const toggleClass = () => {
     console.log(modalSwitch);
     return clsx({
       "edit-container": true,
-      "d-flex": modalSwitch == 1,
-      "d-none": modalSwitch == 0,
+      "d-flex": modalSwitch === 1,
+      "d-none": modalSwitch === 0,
     });
   };
 
   const closeModal = () => {
     console.log("close modal");
     if (modalSwitch) {
-      setModalToggleOFF();
+      setModalEditToggleOFF();
       console.log(modalSwitch, toggleClass());
     } else {
-      setModalToggleON();
+      setModalEditToggleON();
       console.log(modalSwitch);
     }
   };

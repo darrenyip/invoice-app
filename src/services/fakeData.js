@@ -1,33 +1,77 @@
+import { faker } from "@faker-js/faker";
+
 // status 0 draft; 1 pending;  2 paid
-const invoices = [
-  {
-    _id: "RTX3080",
-    price: 1800.9,
-    due: "19 Jan 2022",
-    buyer: "Connor Zhu",
-    status: "Paid",
-  },
-  {
-    _id: "RTX3090TI",
-    price: 2100,
-    due: "2 Feb 2022",
-    buyer: "Darren Ye",
-    status: "Pending",
-  },
-  {
-    _id: "6700XT",
-    price: 799.99,
-    due: "2 Feb 2022",
-    buyer: "Connor Zhu",
-    status: "Draft",
-  },
-  {
-    _id: "5700XT",
-    price: 599.99,
-    due: "19 Aug 2021",
-    buyer: "Darren Ye",
-    status: "Paid",
-  },
+const invoices = [{
+        _id: "RTX3080",
+        price: 1800.9,
+        due: "19 Jan 2022",
+        buyer: "Connor Zhu",
+        status: "Paid",
+    },
+    {
+        _id: "RTX3090TI",
+        price: 2100,
+        due: "2 Feb 2022",
+        buyer: "Darren Ye",
+        status: "Pending",
+    },
+    {
+        _id: "6700XT",
+        price: 799.99,
+        due: "2 Feb 2022",
+        buyer: "Connor Zhu",
+        status: "Draft",
+    },
+    {
+        _id: "5700XT",
+        price: 599.99,
+        due: "19 Aug 2021",
+        buyer: "Darren Ye",
+        status: "Paid",
+    },
 ];
+
+export const fakerData = () => {
+    let data = [];
+    for (let i = 0; i < 10; i++) {
+        let status = "";
+        let random = faker.datatype.number({ min: 0, max: 2 });
+        if (random === 0) {
+            status = "Draft";
+        }
+        if (random === 1) {
+            status = "Pending";
+        }
+        if (random === 2) {
+            status = "Paid";
+        }
+        console.log("ha", random, typeof status);
+        const createdAt = faker.date.past(2);
+        const lastActive = faker.date.between(createdAt, faker.date.recent());
+        const lastSeen = faker.date.between(createdAt, new Date());
+        let single = {
+            _uuid: faker.datatype.uuid(),
+            _id: faker.datatype.string(3) + faker.datatype.number(4),
+            price: faker.datatype.float({ min: 10, max: 1000, precision: 0.01 }),
+            due: createdAt.toDateString(),
+            buyer: faker.name.firstName() + faker.name.lastName(),
+            status,
+            bill_from_street: faker.address.streetAddress(),
+            bill_from_city: faker.address.city(),
+            bill_from_postCode: faker.address.zipCode(),
+            bill_from_country: faker.address.country(),
+            bill_to_street: faker.address.streetAddress(),
+            bill_to_city: faker.address.city(),
+            bill_to_postCode: faker.address.zipCode(),
+            bill_to_country: faker.address.country(),
+            name: faker.name.firstName() + faker.name.lastName(),
+            email: "",
+            invoice_date: lastActive.toDateString(),
+            payment_terms: status,
+        };
+        data.push(single);
+    }
+    return data;
+};
 
 export default invoices;

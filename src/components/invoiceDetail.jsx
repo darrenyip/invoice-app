@@ -5,18 +5,18 @@ import useStore from "../services/store";
 import InvoiceEdit from "./invoiceEdit";
 const InvoiceDetail = (props) => {
   let navigate = useNavigate();
-  const modalSwitch = useStore((state) => state.modalToggle);
-  const setModalToggleON = useStore((state) => state.setModalToggleON);
+  const setModalEditToggleON = useStore((state) => state.setModalEditToggleON);
   const { id } = useParams();
   const invoices = useStore((state) => state.invoices);
   const invoice = invoices.find((item) => item._id === id);
+  console.log("!!!!!!!", invoice.status);
   const statusColorClass = clsx({
     "clr-draft": invoice.status === "Draft",
     "clr-pending": invoice.status === "Pending",
     "clr-paid": invoice.status === "Paid",
   });
   const handleToggleEdit = () => {
-    setModalToggleON();
+    setModalEditToggleON();
     window.scrollTo(0, 0);
   };
 

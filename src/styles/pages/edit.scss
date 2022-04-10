@@ -7,6 +7,7 @@
     background: var(--black-white);
     max-width: 616px;
     padding: 3.2rem 2.4rem;
+    flex-flow: column wrap;
     // overflow-y: auto;
     & .edit-scrollbar {
         width: 8px;
@@ -40,6 +41,15 @@
         }
     }
     &--bill-from {
+        width: 100%;
+        flex: 1 0 100%;
+        margin-bottom: 2.4rem;
+        & p {
+            color: var(--deep-purple);
+            font-weight: bold;
+        }
+    }
+    &--bill-to {
         width: 100%;
         flex: 1 0 100%;
         margin-bottom: 2.4rem;
