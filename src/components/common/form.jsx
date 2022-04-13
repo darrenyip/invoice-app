@@ -2,10 +2,13 @@ import React, { Component } from "react";
 import Joi from "joi-browser";
 import Input from "./input";
 import Select from "./select";
-
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 class Form extends Component {
   state = {
-    data: {},
+    data: {
+      date: new Date(),
+    },
     errors: {},
   };
 
@@ -38,6 +41,7 @@ class Form extends Component {
 
   handleChange = ({ currentTarget: input }) => {
     const errors = { ...this.state.errors };
+    console.log(input);
     const errorMessage = this.validateProperty(input);
     if (errorMessage) errors[input.name] = errorMessage;
     else delete errors[input.name];
@@ -58,7 +62,6 @@ class Form extends Component {
 
   renderSelect(name, label, options) {
     const { data, errors } = this.state;
-
     return (
       <Select
         name={name}
@@ -84,6 +87,45 @@ class Form extends Component {
         error={errors[name]}
       />
     );
+  }
+  handleDateSelect = (selectedDate, dateType) => {
+    const { data } = this.state;
+    data[dateType] = selectedDate;
+    console.log(selectedDate, dateType);
+    this.setState({ data });
+  };
+  handleDateChange = (changedDate, dateType) => {
+    console.log(changedDate, dateType);
+    const { data } = this.state;
+    data[dateType] = changedDate;
+    this.setState({ data });
+  };
+
+  renderDateSelector(date, dateType, isEditable = true) {
+    if (isEditable) {
+      return (
+        <DatePicker
+          closeOnScroll={true}
+          name={dateType}
+          selected={date ? date : this.state.data.date}
+          onChange={(changedDate) =>
+            this.handleDateChange(changedDate, dateType)
+          } //only when value has changed
+        />
+      );
+    } else {
+      return (
+        <DatePicker
+          closeOnScroll={true}
+          name={dateType}
+          selected={date ? date : this.state.data.date}
+          disabled
+          onChange={(changedDate) =>
+            this.handleDateChange(changedDate, dateType)
+          } //only when value has changed
+        />
+      );
+    }
   }
 }
 

@@ -40,6 +40,7 @@
     --bg-color: var(--dark-bg);
     --checkbox-bg: var(--deep-dark);
     --black-white: var(--dark-bg);
+    --input-border: var(--light-dark);
 }
 
 .light {
@@ -57,6 +58,7 @@
     --bg-card-3: var(--light-dark-100);
     --checkbox-bg: var(--light-purple-100);
     --black-white: var(--white);
+    --input-border: var(--light-purple-100);
 }
 
 .d-none {

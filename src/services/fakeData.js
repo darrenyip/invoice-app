@@ -45,15 +45,17 @@ export const fakerData = () => {
         if (random === 2) {
             status = "Paid";
         }
-        console.log("ha", random, typeof status);
+        const userName = faker.name.firstName() + " " + faker.name.lastName();
+        const email = userName + "@" + faker.internet.domainName();
         const createdAt = faker.date.past(2);
         const lastActive = faker.date.between(createdAt, faker.date.recent());
         const lastSeen = faker.date.between(createdAt, new Date());
         let single = {
             _uuid: faker.datatype.uuid(),
-            _id: faker.datatype.string(3) + faker.datatype.number(4),
+            _id: faker.random.alpha({ count: 3, upcase: true }) +
+                faker.datatype.number(4),
             price: faker.datatype.float({ min: 10, max: 1000, precision: 0.01 }),
-            due: createdAt.toDateString(),
+            due: createdAt,
             buyer: faker.name.firstName() + faker.name.lastName(),
             status,
             bill_from_street: faker.address.streetAddress(),
@@ -64,10 +66,11 @@ export const fakerData = () => {
             bill_to_city: faker.address.city(),
             bill_to_postCode: faker.address.zipCode(),
             bill_to_country: faker.address.country(),
-            name: faker.name.firstName() + faker.name.lastName(),
-            email: "",
-            invoice_date: lastActive.toDateString(),
+            name: userName,
+            email: email,
+            invoice_date: lastActive,
             payment_terms: status,
+            project_description: faker.lorem.sentence(),
         };
         data.push(single);
     }

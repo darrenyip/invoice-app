@@ -205,6 +205,9 @@
     border-radius: 0.6rem;
     width: 10.4rem;
     height: 4rem;
+    & p {
+        padding-top: 4px;
+    }
 }
 
 .products-detail-grid-wpr {

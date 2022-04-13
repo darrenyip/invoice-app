@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { useNavigate } from "react-router-dom";
 const Invoice = (props) => {
   let navigate = useNavigate();
-  const { _id, buyer, price, due, status } = props.data;
+  const { _id, buyer, price, due, status, invoice_date } = props.data;
   const statusColorClass = clsx({
     "invoices--invoice__status": true,
     "d-flex-start-md": true,
@@ -28,7 +28,7 @@ const Invoice = (props) => {
         <p>{buyer}</p>
       </div>
       <div className="invoices--invoice__due">
-        <p>{due}</p>
+        <p>{invoice_date.toDateString()}</p>
       </div>
       <div className="invoices--invoice__price">
         <p className="f-bold">$ {price}</p>

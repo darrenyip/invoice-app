@@ -1,7 +1,7 @@
 .edit-container {
     position: absolute;
     // display: flex;
-    min-height: 200vh; //only for test
+    // min-height: 200vh; //only for test
     z-index: 1;
     width: 100%;
     background: var(--black-white);
@@ -44,6 +44,13 @@
         width: 100%;
         flex: 1 0 100%;
         margin-bottom: 2.4rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0 2.4rem;
+        &__title {
+            margin-bottom: 2.4rem;
+            flex: 1 0 100%;
+        }
         & p {
             color: var(--deep-purple);
             font-weight: bold;
@@ -53,9 +60,54 @@
         width: 100%;
         flex: 1 0 100%;
         margin-bottom: 2.4rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0 2.4rem;
         & p {
             color: var(--deep-purple);
             font-weight: bold;
         }
     }
+    &--invoice-date {
+        display: flex;
+        flex-flow: column wrap;
+        margin-bottom: 2.4rem;
+        & label {
+            color: var(--color-text-2);
+            margin-bottom: 1rem;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 15px;
+            letter-spacing: -0.25px;
+        }
+        & input {
+            width: 100%;
+            padding: 1.6rem 2rem 1.6rem 2rem;
+            background: url(/assets/date-svg.svg);
+            background-repeat: no-repeat;
+            background-position: right 1em bottom 50%;
+            font-weight: 700;
+            font-size: 12px;
+            line-height: 15px;
+            letter-spacing: -0.25px;
+            color: var(--color-text-2);
+            background-color: var(--invoice-card-bg);
+            border: 1px solid var(--input-border);
+            box-sizing: border-box;
+            border-radius: 4px;
+        }
+    }
+    &--payment-terms {
+        margin-bottom: 2.4rem;
+        display: flex;
+        flex-flow: column wrap;
+        & label {
+            width: 100%;
+        }
+        & select {
+            width: 100%;
+        }
+    }
 }
+
+.edit-main--payment-terms {}
