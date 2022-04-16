@@ -8,13 +8,13 @@ import * as rdd from "react-device-detect";
 import { isMobile } from "react-device-detect";
 
 const InvoiceDetail = (props) => {
-  console.log("isMobile: ", isMobile);
+  // console.log("isMobile: ", isMobile);
   let navigate = useNavigate();
   const setModalEditToggleON = useStore((state) => state.setModalEditToggleON);
   const { id } = useParams();
   const invoices = useStore((state) => state.invoices);
   const invoice = invoices.find((item) => item._id === id);
-  console.log("!!!!!!!", invoice.status);
+  // console.log("!!!!!!!", invoice.status);
   const statusColorClass = clsx({
     "clr-draft": invoice.status === "Draft",
     "clr-pending": invoice.status === "Pending",

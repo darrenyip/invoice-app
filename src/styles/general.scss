@@ -176,3 +176,16 @@
         display: none;
     }
 }
+
+.alert {
+    position: absolute;
+    bottom: -3.5rem;
+}
+
+.alert-danger {
+    background: var(--red);
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: bold;
+}

@@ -56,7 +56,7 @@ export const fakerData = () => {
                 faker.datatype.number(4),
             price: faker.datatype.float({ min: 10, max: 1000, precision: 0.01 }),
             due: createdAt,
-            buyer: faker.name.firstName() + faker.name.lastName(),
+            buyer: userName,
             status,
             bill_from_street: faker.address.streetAddress(),
             bill_from_city: faker.address.city(),

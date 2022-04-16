@@ -12,7 +12,7 @@ const InvoiceEdit = (props) => {
   );
   // let navigate = useNavigate();
   const toggleClass = () => {
-    console.log(modalSwitch);
+    // console.log(modalSwitch);
     return clsx({
       "edit-container": true,
       "d-flex": modalSwitch === 1,
@@ -21,13 +21,13 @@ const InvoiceEdit = (props) => {
   };
 
   const closeModal = () => {
-    console.log("close modal");
+    // console.log("close modal");
     if (modalSwitch) {
       setModalEditToggleOFF();
-      console.log(modalSwitch, toggleClass());
+      // console.log(modalSwitch, toggleClass());
     } else {
       setModalEditToggleON();
-      console.log(modalSwitch);
+      // console.log(modalSwitch);
     }
   };
   return (

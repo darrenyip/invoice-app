@@ -14,7 +14,7 @@ function App() {
   const theme = useStore((state) => state.theme);
   const setInvoices = useStore((state) => state.setInvoices);
   const saveData = fakerData();
-  console.log(saveData);
+  // console.log(saveData);
   setInvoices(saveData);
   const AppClasses = clsx({
     App: true,
