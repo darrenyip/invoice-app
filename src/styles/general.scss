@@ -16,6 +16,7 @@
     --gray-400: #0c0e16;
     --light-gray: #494e6e;
     --light-gray-100: #979797;
+    --light-gray-200: #777F98;
     --white: #ffffff;
     --light-green: #33d69f;
     --light-green-fade: rgba(51, 214, 159, 0.12);
@@ -35,6 +36,7 @@
     --invoice-card-bg: var(--deep-dark);
     --invoice-card-draft-bg: var(--light-purple-100-fade);
     --bg-card: var(--deep-dark);
+    --btn-color-1: var(--light-purple-100);
     --bg-card-2: var(--light-dark);
     --bg-card-3: var(--gray-400);
     --bg-color: var(--dark-bg);
@@ -54,6 +56,7 @@
     --invoice-card-bg: var(--white);
     --bg-color: var(--light-bg);
     --bg-card: var(--white);
+    --btn-color-1: var(--light-purple-200);
     --bg-card-2: var(--light-purple-200);
     --bg-card-3: var(--light-dark-100);
     --checkbox-bg: var(--light-purple-100);

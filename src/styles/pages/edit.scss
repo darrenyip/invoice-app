@@ -108,6 +108,89 @@
             width: 100%;
         }
     }
+    &--description {
+        margin-bottom: 6.6rem;
+    }
+    &--products {
+        &__title {
+            margin-bottom: 2.4rem;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 32px;
+            letter-spacing: -0.375px;
+            color: var(--light-gray-200);
+        }
+        &__item {
+            display: flex;
+            flex-wrap: wrap;
+            column-gap: 1.6rem;
+            margin-bottom: 2.4rem;
+            & .item_name {
+                flex: 1 0 100%;
+            }
+            & .item_qty {
+                flex: 1 1 10%;
+            }
+            & .item_price {
+                flex: 1 1 21%;
+            }
+            & .total-wpr {
+                flex: 1 1 27%;
+            }
+        }
+        &__item:last-child {
+            margin-bottom: 0;
+        }
+    }
+    &--background {
+        height: 6.4rem;
+        width: 100%;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.1) 100%);
+    }
+}
+
+.btn.addbtn {
+    background: var(--btn-color-1);
+    color: var(--color-text-2);
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem 0;
 }
 
 .edit-main--payment-terms {}
+
+.form-group.total-wpr {
+    & label {}
+    & input {
+        border: none;
+        background-color: transparent;
+        display: flex;
+        justify-content: flex-start;
+        align-content: center;
+        color: var(--gray-200);
+        padding: 0;
+        margin: 0;
+    }
+    & .total-delete {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 1.4rem;
+    }
+}
+
+@media screen and (min-width:768px) {
+    .edit-container {
+        height: 100vh;
+        overflow: auto;
+        flex-direction: row;
+    }
+    .edit-main {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+}

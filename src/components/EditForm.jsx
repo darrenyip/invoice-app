@@ -5,7 +5,7 @@ import Joi from "joi-browser";
 class EditForm extends Form {
   state = {
     data: {
-      bill_from_street: this.props.bill_from_street,
+      bill_from_street: "",
       bill_from_city: "",
       bill_from_postCode: "",
       bill_from_country: "",
@@ -18,6 +18,7 @@ class EditForm extends Form {
       invoice_date: "",
       payment_terms: "",
       project_description: "",
+      products: [],
     },
     errors: {},
     terms: [
@@ -40,6 +41,9 @@ class EditForm extends Form {
     invoice_date: Joi.string().required().label("Date"),
     payment_terms: Joi.string().required().label("Payment Terms"),
     // project_description: Joi.string().required().label("Description"),
+    item_name: Joi.string().required().label("Item Name"),
+    item_price: Joi.number().required().label("Price"),
+    item_qty: Joi.number().required().label("Qty."),
   };
   doSubmit = () => {
     // Call the server
@@ -66,6 +70,7 @@ class EditForm extends Form {
       invoice_date: invoice.invoice_date,
       payment_terms: invoice.payment_terms,
       project_description: invoice.project_description,
+      products: [...invoice.products],
     };
   }
 
@@ -111,6 +116,36 @@ class EditForm extends Form {
         <div className="edit-main--description">
           {this.renderInput("project_description", "Project Description")}
         </div>
+        <div className="edit-main--products">
+          <div className="edit-main--products__title">Item List</div>
+          {this.state.data.products &&
+            this.state.data.products.map((el, index) => (
+              <div
+                className="edit-main--products__item"
+                key={el.item_name + index}
+              >
+                {this.renderProductInput(
+                  "item_name",
+                  "Item Name",
+                  "text",
+                  index
+                )}
+                {this.renderProductInput("item_qty", "Qty.", "number", index)}
+                {this.renderProductInput(
+                  "item_price",
+                  "Price",
+                  "number",
+                  index
+                )}
+                {this.renderProductTotalWithDelete(
+                  index,
+                  el.item_price * el.item_qty
+                )}
+              </div>
+            ))}
+          {this.renderAddProduct()}
+        </div>
+        <div className="edit-main--background only-mobile"></div>
       </form>
     );
   }

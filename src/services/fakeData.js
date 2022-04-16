@@ -71,6 +71,25 @@ export const fakerData = () => {
             invoice_date: lastActive,
             payment_terms: status,
             project_description: faker.lorem.sentence(),
+            products: [{
+                    item_name: faker.animal.fish(),
+                    item_price: faker.datatype.float({
+                        min: 10,
+                        max: 1000,
+                        precision: 0.01,
+                    }),
+                    item_qty: faker.datatype.number(10),
+                },
+                {
+                    item_name: faker.animal.fish(),
+                    item_price: faker.datatype.float({
+                        min: 10,
+                        max: 1000,
+                        precision: 0.01,
+                    }),
+                    item_qty: faker.datatype.number({ min: 1, max: 10 }),
+                },
+            ],
         };
         data.push(single);
     }

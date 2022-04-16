@@ -3,7 +3,12 @@ import { useParams, useNavigate } from "react-router-dom";
 import clsx from "clsx";
 import useStore from "../services/store";
 import InvoiceEdit from "./invoiceEdit";
+import * as rdd from "react-device-detect";
+
+import { isMobile } from "react-device-detect";
+
 const InvoiceDetail = (props) => {
+  console.log("isMobile: ", isMobile);
   let navigate = useNavigate();
   const setModalEditToggleON = useStore((state) => state.setModalEditToggleON);
   const { id } = useParams();
@@ -44,7 +49,9 @@ const InvoiceDetail = (props) => {
             </div>
           </div>
           <div className="buttons-wpr d-flex-md">
-            <button className="btn btn-gray-sm">Edit</button>
+            <button className="btn btn-gray-sm" onClick={handleToggleEdit}>
+              Edit
+            </button>
             <button className="btn btn-danger-md">Delete</button>
             <button className="btn btn-primary-lg">Mark as Paid</button>
           </div>

@@ -88,6 +88,33 @@ class Form extends Component {
       />
     );
   }
+  handleProductInputChange = ({ currentTarget: input }) => {
+    const errors = { ...this.state.errors };
+    console.log(input, input.value);
+    const errorMessage = this.validateProperty(input);
+    if (errorMessage) errors[input.name] = errorMessage;
+    else delete errors[input.name];
+    const data = { ...this.state.data };
+    data["products"][input.name] = input.value;
+    console.log("aa", data["products"][input.name]);
+    console.log(data);
+    this.setState({ data, errors });
+  };
+  renderProductInput(name, label, type = "text", index) {
+    const { data, errors } = this.state;
+    console.log(index);
+    console.log("input field: ", data.products[index][name]);
+    return (
+      <Input
+        type={type}
+        name={name}
+        value={data.products[index][name]}
+        label={label}
+        onChange={this.handleProductInputChange}
+        error={errors[name]}
+      />
+    );
+  }
   handleDateSelect = (selectedDate, dateType) => {
     const { data } = this.state;
     data[dateType] = selectedDate;
@@ -99,6 +126,40 @@ class Form extends Component {
     const { data } = this.state;
     data[dateType] = changedDate;
     this.setState({ data });
+  };
+  renderAddProduct = () => {
+    return (
+      <button className="btn addbtn">
+        <div>+ &nbsp;</div> Add New Item
+      </button>
+    );
+  };
+  renderProductTotalWithDelete = (index, total) => {
+    const totalRound2 = (Math.round(total * 100) / 100).toFixed(2);
+    return (
+      <div className="form-group total-wpr">
+        <label htmlFor="total">Total</label>
+        <div className="total-delete">
+          <input name="total" value={totalRound2} type="text" disabled />
+          <div className="total-wpr--delete">
+            <svg
+              width="13"
+              height="16"
+              viewBox="0 0 13 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.44442 0L9.33333 0.888875H12.4444V2.66667H0V0.888875H3.11108L4 0H8.44442ZM2.66667 16C1.68442 16 0.888875 15.2045 0.888875 14.2222V3.55554H11.5555V14.2222C11.5555 15.2045 10.76 16 9.77779 16H2.66667Z"
+                fill="#888EB0"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    );
   };
 
   renderDateSelector(date, dateType, isEditable = true) {
