@@ -1,7 +1,7 @@
 import create from "zustand";
 import _ from "lodash";
 const useStore = create((set, get) => ({
-    modalEditToggle: 1,
+    modalEditToggle: 0,
     invoices: [],
     theme: "light",
     options: [],

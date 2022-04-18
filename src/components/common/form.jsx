@@ -41,7 +41,7 @@ class Form extends Component {
 
   handleChange = ({ currentTarget: input }) => {
     const errors = { ...this.state.errors };
-    console.log(input);
+    console.log("handleALlInputChange", input);
     const errorMessage = this.validateProperty(input);
     if (errorMessage) errors[input.name] = errorMessage;
     else delete errors[input.name];
@@ -63,8 +63,9 @@ class Form extends Component {
     );
   }
 
-  renderSelect(name, label, options) {
+  renderSelect(name, label, options, payment_term) {
     const { data, errors } = this.state;
+    // console.log(payment_term);
     return (
       <Select
         name={name}
@@ -73,6 +74,7 @@ class Form extends Component {
         options={options}
         onChange={this.handleChange}
         error={errors[name]}
+        selectedValue={payment_term}
       />
     );
   }

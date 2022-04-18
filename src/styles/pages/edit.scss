@@ -6,7 +6,7 @@
     width: 100%;
     background: var(--black-white);
     max-width: 616px;
-    padding: 3.2rem 2.4rem;
+    // padding: 3.2rem 2.4rem;
     flex-flow: column wrap;
     // overflow-y: auto;
     & .edit-scrollbar {
@@ -21,6 +21,37 @@
             padding-top: 4px;
         }
     }
+}
+
+.edit-topbar {
+    padding: 3.2rem 2.4rem 0 2.4rem;
+}
+
+.edit-main--title {
+    padding: 0 2.4rem;
+}
+
+.edit-main form>* {
+    padding: 0 2.4rem;
+}
+
+.edit-main .edit-main--products {
+    padding-bottom: 2rem;
+}
+
+.edit-main--background {
+    padding: 0;
+}
+
+.edit-main .edit-main--buttons {
+    padding: 2.2rem 2.4rem;
+}
+
+.edit-main--buttons .btn-group {
+    display: flex;
+    justify-content: flex-end;
+    column-gap: 0.8rem;
+    align-items: center;
 }
 
 .edit-main {

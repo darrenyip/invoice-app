@@ -45,8 +45,9 @@ class EditForm extends Form {
     item_price: Joi.number().required().label("Price"),
     item_qty: Joi.number().required().label("Qty."),
   };
-  doSubmit = () => {
+  doSubmit = (e) => {
     // Call the server
+    e.preventDefault();
     console.log("Submitted");
     console.log("====================================");
     console.log(this.state.data);
@@ -76,6 +77,7 @@ class EditForm extends Form {
 
   render() {
     const { terms } = this.state;
+    const { invoice } = this.props;
     return (
       <form onSubmit={this.handleSubmit}>
         <div className="edit-main--bill-from">
@@ -110,7 +112,8 @@ class EditForm extends Form {
           {this.renderSelect(
             "payment_terms",
             "Payment Terms",
-            this.state.terms
+            this.state.terms,
+            invoice.payment_terms
           )}
         </div>
         <div className="edit-main--description">
@@ -146,6 +149,22 @@ class EditForm extends Form {
           {this.renderAddProduct()}
         </div>
         <div className="edit-main--background only-mobile"></div>
+        <div className="edit-main--buttons">
+          <div className="btn-group">
+            <button
+              className="btn btn-gray-md"
+              onClick={(e) => this.props.closeModal(e)}
+            >
+              Cancel
+            </button>
+            <button
+              className="btn btn-primary-lg"
+              onClick={(e) => this.doSubmit(e)}
+            >
+              Save Changes
+            </button>
+          </div>
+        </div>
       </form>
     );
   }

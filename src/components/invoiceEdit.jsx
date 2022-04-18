@@ -20,14 +20,15 @@ const InvoiceEdit = (props) => {
     });
   };
 
-  const closeModal = () => {
+  const closeModal = (e) => {
+    e.preventDefault();
     // console.log("close modal");
     if (modalSwitch) {
       setModalEditToggleOFF();
-      // console.log(modalSwitch, toggleClass());
+      window.scrollTo(0, 0);
     } else {
       setModalEditToggleON();
-      // console.log(modalSwitch);
+      window.scrollTo(0, 0);
     }
   };
   return (
@@ -43,7 +44,7 @@ const InvoiceEdit = (props) => {
           Edit <span>#</span>
           {invoice._id}
         </div>
-        <EditForm invoice={invoice} />
+        <EditForm invoice={invoice} closeModal={closeModal} />
       </div>
     </div>
   );

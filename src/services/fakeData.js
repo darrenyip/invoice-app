@@ -69,7 +69,11 @@ export const fakerData = () => {
             name: userName,
             email: email,
             invoice_date: lastActive,
-            payment_terms: status,
+            payment_terms: faker.random.objectElement({
+                seven: 7,
+                ten: 10,
+                thirty: 30,
+            }),
             project_description: faker.lorem.sentence(),
             products: [{
                     item_name: faker.animal.fish(),
