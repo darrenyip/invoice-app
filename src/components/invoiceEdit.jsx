@@ -6,10 +6,12 @@ import EditForm from "./EditForm";
 const InvoiceEdit = (props) => {
   const { invoice } = props;
   const modalSwitch = useStore((state) => state.modalEditToggle);
+  const invoices = useStore((state) => state.invoices);
   const setModalEditToggleON = useStore((state) => state.setModalEditToggleON);
   const setModalEditToggleOFF = useStore(
     (state) => state.setModalEditToggleOFF
   );
+  const updateInvoice = useStore((state) => state.updateInvoice);
   // let navigate = useNavigate();
   const toggleClass = () => {
     // console.log(modalSwitch);
@@ -31,6 +33,11 @@ const InvoiceEdit = (props) => {
       window.scrollTo(0, 0);
     }
   };
+  const handleUpdateInvoice = (invoiceDetail) => {
+    const id = invoice._id;
+    updateInvoice(id, invoiceDetail);
+    console.log("invoice updated!", invoices);
+  };
   return (
     <div className={toggleClass()}>
       <div className="edit-topbar">
@@ -44,7 +51,11 @@ const InvoiceEdit = (props) => {
           Edit <span>#</span>
           {invoice._id}
         </div>
-        <EditForm invoice={invoice} closeModal={closeModal} />
+        <EditForm
+          invoice={invoice}
+          closeModal={closeModal}
+          onUpdateInvoice={handleUpdateInvoice}
+        />
       </div>
     </div>
   );

@@ -13,6 +13,8 @@ const InvoiceDetail = (props) => {
   const setModalEditToggleON = useStore((state) => state.setModalEditToggleON);
   const { id } = useParams();
   const invoices = useStore((state) => state.invoices);
+  const removeInvoice = useStore((state) => state.removeInvoice);
+  const markAsPaid = useStore((state) => state.updateStatus);
   const invoice = invoices.find((item) => item._id === id);
   // console.log("!!!!!!!", invoice.status);
   const statusColorClass = clsx({
@@ -25,6 +27,19 @@ const InvoiceDetail = (props) => {
     window.scrollTo(0, 0);
   };
 
+  const handleRemoveInvoice = (e, invoiceId) => {
+    e.preventDefault();
+    console.log(invoiceId);
+    navigate(-1);
+    setTimeout(() => {
+      removeInvoice(invoiceId);
+    }, 0);
+  };
+  const handlePaid = (e, invoiceId) => {
+    e.preventDefault();
+    markAsPaid(invoiceId);
+  };
+
   return (
     <React.Fragment>
       <InvoiceEdit invoice={invoice} />
@@ -35,6 +50,7 @@ const InvoiceDetail = (props) => {
             navigate(-1);
           }}
         >
+          <a href="" target="_blank"></a>
           <i className="gg-chevron-left"></i>
           <p className="f-bold">Go back</p>
         </div>
@@ -52,8 +68,18 @@ const InvoiceDetail = (props) => {
             <button className="btn btn-gray-sm" onClick={handleToggleEdit}>
               Edit
             </button>
-            <button className="btn btn-danger-md">Delete</button>
-            <button className="btn btn-primary-lg">Mark as Paid</button>
+            <button
+              className="btn btn-danger-md"
+              onClick={(e) => handleRemoveInvoice(e, invoice._id)}
+            >
+              Delete
+            </button>
+            <button
+              className="btn btn-primary-lg"
+              onClick={(e) => handlePaid(e, invoice._id)}
+            >
+              Mark as Paid
+            </button>
           </div>
         </div>
         <div className="invoice-detail--sheet card">
@@ -64,15 +90,15 @@ const InvoiceDetail = (props) => {
             <p className="clr-purple">Graphic design</p>
           </div>
           <div className="invoice-detail--sheet__address">
-            <p>18 Union Terrace</p>
-            <p>Londong</p>
-            <p>EI 3EA</p>
-            <p>United Kingdom</p>
+            <p>{invoice.bill_from_street}</p>
+            <p>{invoice.bill_from_city}</p>
+            <p>{invoice.bill_from_postCode}</p>
+            <p>{invoice.bill_from_country}</p>
           </div>
           <div className="invoice-detail--sheet__date-bill">
             <div className="invoice-detail--sheet__date-bill--date">
               <p className="clr-purple title-sm">Invoice Date</p>
-              <h3>21 Aug 2022</h3>
+              <h3>{invoice.invoice_date.toDateString()}</h3>
             </div>
             <div className="invoice-detail--sheet__date-bill--due">
               <p className="clr-purple title-sm">Payment Due</p>
@@ -81,15 +107,15 @@ const InvoiceDetail = (props) => {
             <div className="invoice-detail--sheet__date-bill--bill">
               <p className="clr-purple title-sm">Bill To</p>
               <h3 className="name">Alex Grim</h3>
-              <p className="address-line">19 Church Way</p>
-              <p className="address-line">London</p>
-              <p className="address-line">EI 3EA</p>
-              <p className="address-line">United Kingdom</p>
+              <p className="address-line">{invoice.bill_to_street}</p>
+              <p className="address-line">{invoice.bill_to_city}</p>
+              <p className="address-line">{invoice.bill_to_postCode}</p>
+              <p className="address-line">{invoice.bill_to_country}</p>
             </div>
           </div>
           <div className="invoice-detail--sheet__sent-to">
             <p>Sent to</p>
-            <h3>alexgrim@mail.com</h3>
+            <h3>{invoice.email}</h3>
           </div>
           <div className="invoice-detail--sheet__products-wpr only-mobile">
             <div className="products-top">

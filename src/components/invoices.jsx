@@ -33,11 +33,6 @@ const Invoices = () => {
         filteredInvoice.map((invoice) => (
           <Invoice data={invoice} key={invoice._id} />
         ))}
-
-      {/* <h1>Filtered</h1>
-      {filteredInvoice.length != 0 &&
-        invoices.map((invoice) => <Invoice data={invoice} key={invoice._id} />)}
-      {filteredInvoice.length == 0 && <NoInvoice />} */}
     </div>
   );
 };

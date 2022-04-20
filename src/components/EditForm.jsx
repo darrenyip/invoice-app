@@ -51,6 +51,8 @@ class EditForm extends Form {
     console.log("Submitted");
     console.log("====================================");
     console.log(this.state.data);
+    this.props.onUpdateInvoice(this.state.data);
+
     console.log("====================================");
   };
   componentDidMount() {
@@ -159,7 +161,10 @@ class EditForm extends Form {
             </button>
             <button
               className="btn btn-primary-lg"
-              onClick={(e) => this.doSubmit(e)}
+              onClick={(e) => {
+                this.doSubmit(e);
+                this.props.closeModal(e);
+              }}
             >
               Save Changes
             </button>
