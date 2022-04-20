@@ -23,13 +23,13 @@ const InvoiceDetail = (props) => {
     window.scrollTo(0, 0);
   };
 
-  const handleRemoveInvoice = (e, invoiceId) => {
+  const handleRemoveInvoice = async (e, invoiceId) => {
     e.preventDefault();
     console.log(invoiceId);
     navigate(-1);
     setTimeout(() => {
       removeInvoice(invoiceId);
-    }, 0);
+    }, 500);
   };
   const handlePaid = (e, invoiceId) => {
     e.preventDefault();
