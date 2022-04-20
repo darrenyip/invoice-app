@@ -78,7 +78,6 @@ class EditForm extends Form {
   }
 
   render() {
-    const { terms } = this.state;
     const { invoice } = this.props;
     return (
       <form onSubmit={this.handleSubmit}>

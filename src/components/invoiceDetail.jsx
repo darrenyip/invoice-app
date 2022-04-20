@@ -3,12 +3,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import clsx from "clsx";
 import useStore from "../services/store";
 import InvoiceEdit from "./invoiceEdit";
-import * as rdd from "react-device-detect";
-
-import { isMobile } from "react-device-detect";
 
 const InvoiceDetail = (props) => {
-  // console.log("isMobile: ", isMobile);
   let navigate = useNavigate();
   const setModalEditToggleON = useStore((state) => state.setModalEditToggleON);
   const { id } = useParams();
@@ -50,7 +46,6 @@ const InvoiceDetail = (props) => {
             navigate(-1);
           }}
         >
-          <a href="" target="_blank"></a>
           <i className="gg-chevron-left"></i>
           <p className="f-bold">Go back</p>
         </div>

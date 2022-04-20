@@ -3,7 +3,6 @@ import useStore from "../../services/store";
 
 const CheckBox = (props) => {
   const { options, onOptionChecked } = props;
-  const stateOptions = useStore((state) => state.options);
   const addOption = useStore((state) => state.addOption);
   const removeOption = useStore((state) => state.removeOption);
   const handleChange = (event) => {
