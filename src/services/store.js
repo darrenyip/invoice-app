@@ -2,6 +2,7 @@ import create from "zustand";
 import _ from "lodash";
 const useStore = create((set, get) => ({
     modalEditToggle: 0,
+    modalNewToggle: 0,
     invoices: [],
     theme: "light",
     options: [],
@@ -31,7 +32,7 @@ const useStore = create((set, get) => ({
                 if (item._id === invoiceId) {
                     return {
                         ...item,
-                        price: invoiceDetail.price,
+                        // price: invoiceDetail.price,
                         due: invoiceDetail.due,
                         status: invoiceDetail.status,
                         bill_from_street: invoiceDetail.bill_from_street,
@@ -60,6 +61,8 @@ const useStore = create((set, get) => ({
     setOptions: (options) => set((state) => ({ options })),
     setModalEditToggleON: () => set({ modalEditToggle: 1 }),
     setModalEditToggleOFF: () => set({ modalEditToggle: 0 }),
+    setModalNewToggleON: () => set({ modalNewToggle: 1 }),
+    setModalNewToggleOFF: () => set({ modalEditToggle: 0 }),
     removeOption: (option) =>
         set((state) => ({
             options: state.options.filter((item) => item !== option),

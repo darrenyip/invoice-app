@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import clsx from "clsx";
 import useStore from "../services/store";
 import InvoiceEdit from "./invoiceEdit";
+import NewInvoice from "./newInvoice";
 
 const InvoiceDetail = (props) => {
   let navigate = useNavigate();
@@ -39,6 +40,7 @@ const InvoiceDetail = (props) => {
   return (
     <React.Fragment>
       <InvoiceEdit invoice={invoice} />
+      <NewInvoice invoice={invoice} />
       <div className="invoice-detail">
         <div
           className="back-bar cursor-pointer "
