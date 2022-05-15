@@ -44,6 +44,7 @@
     ]
   },
   "devDependencies": {
-    "@faker-js/faker": "^6.1.2"
+    "@faker-js/faker": "^6.1.2",
+    "eslint-plugin-react-hooks": "^4.5.0"
   }
 }
